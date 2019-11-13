@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Portfolio",
-    "currentPage": "aboutme.html",
+    "currentPage": "index.html",
     "theme": {
       "name": "mobirise-amp",
       "title": "Mobirise AMP",
@@ -47,7 +47,7 @@
         "url": "https://fonts.googleapis.com/css?family=Bowlby+One:400"
       }
     ],
-    "uniqCompNum": 29,
+    "uniqCompNum": 30,
     "versionPublish": "4.11.5",
     "screenshot": "screenshot.png",
     "favicon": "@PROJECT_PATH@/assets/images/strip.jpg",
