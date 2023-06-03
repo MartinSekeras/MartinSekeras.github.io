@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pallet Stacking Calculator v0.3a</title>
+  <title>Pallet Stacking Calculator v0.3b</title>
+  <style>
+    .warning-message {
+    color: red;
+  }
+  </style>
   <script src="script.js"></script>
 </head>
 <body>
-  <h1>Pallet Stacking Calculator v0.3a</h1>
+  <h1>Pallet Stacking Calculator v0.3b</h1>
+  <p1>This is a beta software, intended for limited use as a general rule<br>
+    on calculating amount of boxes that can be fit onto variety of pallets<br>
+    
+    In no way I take responsibility for any issues user may or may not have<br>
+    while using this software, this is a alpha build and will have issues<br>
+    i was not aware of. So use with caution as <b>estimates</b> only.<br><br></p1> 
+
+  <p1>With that disclaimer out of the way have fun using this software.<br>
+    Scroll down to see the updates and development progress of this web app.</p1>
   
   <h2>Pallet Specifications</h2>
   <label for="palletLength">Pallet Length(mm):</label>
@@ -37,8 +51,27 @@
   
   <h2>Results</h2>
   <p id="maxProducts"></p>
-  <p id="optimalOrientation"></p>
+  <!--<p id="optimalOrientation"></p>-->
+  <p id="warningMessageOne" class="warning-message"></p>
+  <p id="warningMessageTwo" class="warning-message"></p>
   
   <button onclick="resetForm()">Reset</button>
+
+  <h2>Updates</h2>
+  <h5>___________________________________________________________________________________</h5>
+  <h3>03 June 2023</h3>
+  <p1><b>Update version 0.3a</b>, added a lot of functionality to pallet stacker.<br>
+  For one it is now possible to calculate additional orientations. This means that<br>
+  the calculator can detect and orient boxes on pallet to fit more. Such as 3 boxes<br>
+  laying flat and 1 box standing up on it's end at the endge of a pallet.<br>
+  This is a beta feature and only reflect double pallets and may not work 100%<br><br></p1>
+  
+  <p1><b>Update version 0.3b</b>, New quick update on features i wanted to add before.<br>
+    The web app can now handle error correcting when nothing is inputted into fields, it<br>
+    can also detect overweight pallets and alert user if the pallet may be too heavy<br>
+    for racking, depending on lenght of pallet and weight the user inputted. These variables<br>
+    are hard coded will vary as every deployment is different, optional input field planned.</p1>
+  <h5>___________________________________________________________________________________</h5>
+
 </body>
 </html>

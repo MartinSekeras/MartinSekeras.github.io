@@ -9,6 +9,12 @@ function calculateMaxProducts() {
   var productHeight = parseInt(document.getElementById("productHeight").value);
   var productWeight = parseInt(document.getElementById("productWeight").value);
   
+  // Validate input values
+  if (isNaN(palletLength) || isNaN(palletWidth) || isNaN(palletHeight) || isNaN(maxPalletWeight) || isNaN(productLength) || isNaN(productWidth) || isNaN(productHeight) || isNaN(productWeight)) {
+    alert("Please enter valid numeric values.");
+    return;
+  }
+  
   var maxProductsLengthwise = Math.floor(palletLength / productLength) * Math.floor(palletWidth / productWidth) * Math.floor(palletHeight / productHeight);
   var maxProductsSideways = Math.floor(palletLength / productWidth) * Math.floor(palletWidth / productLength) * Math.floor(palletHeight / productHeight);
   var maxProductsHeightwise = Math.floor(palletLength / productHeight) * Math.floor(palletWidth / productWidth) * Math.floor(palletHeight / productLength);
@@ -29,7 +35,6 @@ function calculateMaxProducts() {
     maxProducts = Math.floor(maxPalletWeight / productWeight);
   }
   
-  // Additional product placement logic
   var maxProductsDoublePallet = 0;
   if (productLength <= (palletLength / 2) && productWidth <= palletWidth && productHeight <= palletHeight) {
     var maxProductsFlat = Math.floor(palletLength / productLength) * Math.floor(palletWidth / productWidth) * Math.floor(palletHeight / productHeight);
@@ -39,12 +44,28 @@ function calculateMaxProducts() {
   
   if (maxProductsDoublePallet > maxProducts) {
     maxProducts = maxProductsDoublePallet;
-    orientation = "Double Pallet";
+    orientation = "";
   }
+
+  if (palletLength <=1200 && maxPalletWeight > 601) {
+    document.getElementById("warningMessageOne").innerHTML = "Warning: Pallet may be overweight for racking, (>600kg).";
+    document.getElementById("warningMessageTwo").innerHTML = "Please select pallet weight 500kg max for racking.";
+  } else if(palletLength > 1200 && palletLength <= 2400 && maxPalletWeight > 501) {
+    document.getElementById("warningMessageOne").innerHTML = "Warning: This pallet may be overweight for racking, (>500kg).";
+    document.getElementById("warningMessageTwo").innerHTML = "For pallets of this size consider setting max weight as 500kg for racking";
+  } else if (maxPalletWeight > 850) {
+    document.getElementById("warningMessageOne").innerHTML = "Warning: Maximum permissible weight of pallet is 850kg";
+  }
+  
   
   document.getElementById("maxProducts").innerHTML = "Maximum number of products that can be stacked: " + maxProducts;
   document.getElementById("optimalOrientation").innerHTML = "Optimal orientation: " + orientation;
+
+  // Check warnings
+  
 }
+
+
 
 
 /*
@@ -94,4 +115,14 @@ function calculateMaxProducts() {
     document.getElementById("productWeight").value = "";
     document.getElementById("maxProducts").innerHTML = "";
     document.getElementById("optimalOrientation").innerHTML = "";
+
+    var warningMessage = "";
+  if (palletLength <= 1200 && maxPalletWeight > 601) {
+    warningMessage = "Warning: Pallet is below or equal to 1200mm in length and overweight (>600kg).";
+  } else if (palletLength <= 1200 && maxPalletWeight > 501) {
+    warningMessage = "Warning: Pallet is below or equal to 1200mm in length and overweight (>500kg).";
+  } else if (maxPalletWeight > 501) {
+    warningMessage = "Warning: Pallet is overweight (>500kg).";
+  }
+  document.getElementById("warning").innerHTML = warningMessage;
   }*/
