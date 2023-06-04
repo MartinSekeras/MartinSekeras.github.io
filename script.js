@@ -74,7 +74,7 @@ function calculateMaxProducts() {
   
   // Validate input values
   if (isNaN(palletLength) || isNaN(palletWidth) || isNaN(palletHeight) || isNaN(maxPalletWeight) || isNaN(productLength) || isNaN(productWidth) || isNaN(productHeight) || isNaN(productWeight)) {
-    alert("Please enter valid numeric values.");
+    alert("Please enter valid product dimensions.");
     return;
   }
   
