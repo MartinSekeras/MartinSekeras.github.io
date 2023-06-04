@@ -4,8 +4,16 @@
   <title>Pallet Stacking Calculator v0.3b</title>
   <style>
     .warning-message {
-    color: red;
-  }
+      color: red;
+    }
+
+    .container {
+      margin-bottom: 10px;
+    }
+    
+    .hidden-input {
+      display: none;
+    }
   </style>
   <script src="script.js"></script>
 </head>
@@ -21,19 +29,46 @@
   <p1>With that disclaimer out of the way have fun using this software.<br>
     Scroll down to see the updates and development progress of this web app.</p1>
   
-  <h2>Pallet Specifications</h2>
-  <label for="palletLength">Pallet Length(mm):</label>
-  <input type="number" id="palletLength"><br>
+    <h2>Pallet Specifications</h2>
   
-  <label for="palletWidth">Pallet Width(mm):</label>
-  <input type="number" id="palletWidth"><br>
+  <div class="container">
+    <input type="checkbox" id="singlePalletCheckbox" onchange="handleCheckboxChange(this)">
+    <label for="singlePalletCheckbox">Single Pallet (1200mm x 1000mm x 1800mm, Max Weight: 600kg)</label>
+  </div>
   
-  <label for="palletHeight">Pallet Height(mm):</label>
-  <input type="number" id="palletHeight"><br>
+  <div id="singlePalletFields" class="container hidden-input">
+    <label for="singlePalletLength">Pallet Length(mm):</label>
+    <input type="number" id="singlePalletLength" value="1200"><br>
   
-  <label for="maxPalletWeight">Max Pallet Weight(kg):</label>
-  <input type="number" id="maxPalletWeight"><br>
+    <label for="singlePalletWidth">Pallet Width(mm):</label>
+    <input type="number" id="singlePalletWidth" value="1000"><br>
   
+    <label for="singlePalletHeight">Pallet Height(mm):</label>
+    <input type="number" id="singlePalletHeight" value="1800"><br>
+  
+    <label for="singlePalletMaxWeight">Max Pallet Weight(kg):</label>
+    <input type="number" id="singlePalletMaxWeight" value="600"><br>
+  </div>
+  
+  <div class="container">
+    <input type="checkbox" id="doublePalletCheckbox" onchange="handleCheckboxChange(this)">
+    <label for="doublePalletCheckbox">Double Pallet (2400mm x 1000mm x 1800mm, Max Weight: 500kg)</label>
+  </div>
+  
+  <div id="doublePalletFields" class="container hidden-input">
+    <label for="doublePalletLength">Pallet Length(mm):</label>
+    <input type="number" id="doublePalletLength" value="2400"><br>
+  
+    <label for="doublePalletWidth">Pallet Width(mm):</label>
+    <input type="number" id="doublePalletWidth" value="1000"><br>
+  
+    <label for="doublePalletHeight">Pallet Height(mm):</label>
+    <input type="number" id="doublePalletHeight" value="1800"><br>
+  
+    <label for="doublePalletMaxWeight">Max Pallet Weight(kg):</label>
+    <input type="number" id="doublePalletMaxWeight" value="500"><br>
+  </div>
+
   <h2>Product Specifications</h2>
   <label for="productLength">Product Length(mm):</label>
   <input type="number" id="productLength"><br>
