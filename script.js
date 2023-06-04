@@ -1,6 +1,7 @@
 function handleCheckboxChange(checkbox) {
   var singlePalletCheckbox = document.getElementById("singlePalletCheckbox");
   var doublePalletCheckbox = document.getElementById("doublePalletCheckbox");
+  var customPalletCheckbox = document.getElementById("customPalletCheckbox");
   
   // If the Single Pallet checkbox is checked
   if (checkbox === singlePalletCheckbox && checkbox.checked) {
@@ -12,6 +13,7 @@ function handleCheckboxChange(checkbox) {
     
     // Uncheck the Double Pallet checkbox
     doublePalletCheckbox.checked = false;
+    customPalletCheckbox.checked = false;
   }
   
   // If the Double Pallet checkbox is checked
@@ -24,12 +26,26 @@ function handleCheckboxChange(checkbox) {
     
     // Uncheck the Single Pallet checkbox
     singlePalletCheckbox.checked = false;
+    customPalletCheckbox.checked = false;
+  }
+
+  if (checkbox === customPalletCheckbox && checkbox.checked) {
+    // Populate the single pallet input fields with predetermined values
+    document.getElementById("customPalletLength").value;
+    document.getElementById("customPalletWidth").value;
+    document.getElementById("customPalletHeight").value;
+    document.getElementById("customPalletMaxWeight").value;
+    
+    // Uncheck the Double Pallet checkbox
+    singlePalletCheckbox.checked = false;
+    doublePalletCheckbox.checked = false;
   }
 }
 
 function calculateMaxProducts() {
   var singlePalletCheckbox = document.getElementById("singlePalletCheckbox");
   var doublePalletCheckbox = document.getElementById("doublePalletCheckbox");
+  var customPalletCheckbox = document.getElementById("doublePalletCheckbox");
   
   // Single Pallet
   if (singlePalletCheckbox.checked) {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Pallet Stacking Calculator v0.4</title>
   <style>
@@ -10,110 +11,175 @@
     .container {
       margin-bottom: 10px;
     }
-    
+
     .hidden-input {
       display: none;
+    }
+
+    .large-text {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .input-container label {
+      width: 150px;
+      margin-right: 1px;
+    }
+
+    .calculate-button {
+      margin-top: 10px;
+      font-size: 15px;
+      padding: 1px 10px;
+      margin-left: 210px;
+    }
+
+    .reset-button {
+      margin-top: 10px;
+      font-size: 15px;
+      padding: 1px 10px;
+      margin-left: 220px;
+    }
+
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   </style>
   <script src="script.js"></script>
 </head>
+
 <body>
   <h1>Pallet Stacking Calculator v0.4</h1>
   <p1>This is a beta software, intended for limited use as a general rule<br>
     on calculating amount of boxes that can be fit onto variety of pallets<br>
-    
+
     In no way I take responsibility for any issues user may or may not have<br>
     while using this software, this is a alpha build and will have issues<br>
-    i was not aware of. So use with caution as <b>estimates</b> only.<br><br></p1> 
+    i was not aware of. So use with caution as <b>estimates</b> only.<br><br></p1>
 
   <p1>With that disclaimer out of the way have fun using this software.<br>
-    Scroll down to see the updates and development progress of this web app.</p1>
-  
+    Scroll down to see the updates and development progress of this web app.<p1></p1>
+
     <h2>Pallet Specifications</h2>
-  
-  <div class="container">
-    <input type="checkbox" id="singlePalletCheckbox" onchange="handleCheckboxChange(this)">
-    <label for="singlePalletCheckbox">Single Pallet (1200mm x 1000mm x 1800mm, Max Weight: 600kg)</label>
-  </div>
-  
-  <div id="singlePalletFields" class="container hidden-input">
-    <label for="singlePalletLength">Pallet Length(mm):</label>
-    <input type="number" id="singlePalletLength" value="1200"><br>
-  
-    <label for="singlePalletWidth">Pallet Width(mm):</label>
-    <input type="number" id="singlePalletWidth" value="1000"><br>
-  
-    <label for="singlePalletHeight">Pallet Height(mm):</label>
-    <input type="number" id="singlePalletHeight" value="1800"><br>
-  
-    <label for="singlePalletMaxWeight">Max Pallet Weight(kg):</label>
-    <input type="number" id="singlePalletMaxWeight" value="600"><br>
-  </div>
-  
-  <div class="container">
-    <input type="checkbox" id="doublePalletCheckbox" onchange="handleCheckboxChange(this)">
-    <label for="doublePalletCheckbox">Double Pallet (2400mm x 1000mm x 1800mm, Max Weight: 500kg)</label>
-  </div>
-  
-  <div id="doublePalletFields" class="container hidden-input">
-    <label for="doublePalletLength">Pallet Length(mm):</label>
-    <input type="number" id="doublePalletLength" value="2400"><br>
-  
-    <label for="doublePalletWidth">Pallet Width(mm):</label>
-    <input type="number" id="doublePalletWidth" value="1000"><br>
-  
-    <label for="doublePalletHeight">Pallet Height(mm):</label>
-    <input type="number" id="doublePalletHeight" value="1800"><br>
-  
-    <label for="doublePalletMaxWeight">Max Pallet Weight(kg):</label>
-    <input type="number" id="doublePalletMaxWeight" value="500"><br>
-  </div>
 
-  <h2>Product Specifications</h2>
-  <label for="productLength">Product Length(mm):</label>
-  <input type="number" id="productLength"><br>
-  
-  <label for="productWidth">Product Width(mm):</label>
-  <input type="number" id="productWidth"><br>
-  
-  <label for="productHeight">Product Height(mm):</label>
-  <input type="number" id="productHeight"><br>
-  
-  <label for="productWeight">Product Weight(kg):</label>
-  <input type="number" id="productWeight"><br>
-  
-  <button onclick="calculateMaxProducts()">Calculate</button>
-  
-  <h2>Results</h2>
-  <p id="maxProducts"></p>
-  <!--<p id="optimalOrientation"></p>-->
-  <p id="warningMessageOne" class="warning-message"></p>
-  <p id="warningMessageTwo" class="warning-message"></p>
-  
-  <button onclick="resetForm()">Reset</button>
+    <div class="container">
+      <input type="checkbox" id="singlePalletCheckbox" onchange="handleCheckboxChange(this)">
+      <label for="singlePalletCheckbox">Single Pallet (1200mm x 1000mm x 1800mm, Max Weight: 600kg)</label>
+    </div>
 
-  <h2>Updates</h2>
-  <h5>___________________________________________________________________________________</h5>
-  <h3>03 June 2023</h3>
-  <p1><b>Update version 0.3a</b>, added a lot of functionality to pallet stacker.<br>
-  For one it is now possible to calculate additional orientations. This means that<br>
-  the calculator can detect and orient boxes on pallet to fit more. Such as 3 boxes<br>
-  laying flat and 1 box standing up on it's end at the endge of a pallet.<br>
-  This is a beta feature and only reflect double pallets and may not work 100%<br><br></p1>
-  
-  <p1><b>Update version 0.3b</b>, New quick update on features i wanted to add before.<br>
-    The web app can now handle error correcting when nothing is inputted into fields, it<br>
-    can also detect overweight pallets and alert user if the pallet may be too heavy<br>
-    for racking, depending on lenght of pallet and weight the user inputted. These variables<br>
-    are hard coded will vary as every deployment is different, optional input field planned.</p1>
-  <h5>___________________________________________________________________________________</h5>
+    <div id="singlePalletFields" class="container hidden-input">
+      <label for="singlePalletLength">Pallet Length(mm):</label>
+      <input type="number" id="singlePalletLength" value="1200"><br>
 
-  <h3>04 June 2023</h3>
-  <p1><b>Update version 0.4</b>, New day new update, fairly small update today. The web app<br>
-    is now simplified, no longer pallet spec is user inputtable but simple checkboxes with<br>
-    predetermined values. Future update will feature custom checkbox with user selectable values<br>
-    but for now for simplicity sake it was made with 2 options.</p1>
-  <h5>___________________________________________________________________________________</h5>
+      <label for="singlePalletWidth">Pallet Width(mm):</label>
+      <input type="number" id="singlePalletWidth" value="1000"><br>
 
+      <label for="singlePalletHeight">Pallet Height(mm):</label>
+      <input type="number" id="singlePalletHeight" value="1800"><br>
+
+      <label for="singlePalletMaxWeight">Max Pallet Weight(kg):</label>
+      <input type="number" id="singlePalletMaxWeight" value="600"><br>
+    </div>
+
+    <div class="container">
+      <input type="checkbox" id="doublePalletCheckbox" onchange="handleCheckboxChange(this)">
+      <label for="doublePalletCheckbox">Double Pallet (2400mm x 1000mm x 1800mm, Max Weight: 500kg)</label>
+    </div>
+
+    <div id="doublePalletFields" class="container hidden-input">
+      <label for="doublePalletLength">Pallet Length(mm):</label>
+      <input type="number" id="doublePalletLength" value="2400"><br>
+
+      <label for="doublePalletWidth">Pallet Width(mm):</label>
+      <input type="number" id="doublePalletWidth" value="1000"><br>
+
+      <label for="doublePalletHeight">Pallet Height(mm):</label>
+      <input type="number" id="doublePalletHeight" value="1800"><br>
+
+      <label for="doublePalletMaxWeight">Max Pallet Weight(kg):</label>
+      <input type="number" id="doublePalletMaxWeight" value="500"><br>
+    </div>
+
+    <div class="container">
+      <input type="checkbox" id="customPalletCheckbox" onchange="handleCheckboxChange(this)">
+      <label for="customPalletCheckbox">Custom Pallet (Not functional, will not yield any results.)</label>
+    </div>
+
+    <div id="customPalletFields" class="container hidden-input">
+      <label for="customPalletLength">Pallet Length(mm):</label>
+      <input type="number" id="customPalletLength"><br>
+
+      <label for="customPalletWidth">Pallet Width(mm):</label>
+      <input type="number" id="customPalletWidth"><br>
+
+      <label for="customPalletHeight">Pallet Height(mm):</label>
+      <input type="number" id="customPalletHeight"><br>
+
+      <label for="customPalletMaxWeight">Max Pallet Weight(kg):</label>
+      <input type="number" id="customPalletMaxWeight"><br>
+    </div>
+
+    <h2>Product Specifications</h2>
+    <div class="input-container">
+      <label for="productLength">Product Length (mm):</label>
+      <input type="number" id="productLength" class="large-text">
+    </div>
+    <div class="input-container">
+      <label for="productWidth">Product Width (mm):</label>
+      <input type="number" id="productWidth" class="large-text">
+    </div>
+    <div class="input-container">
+      <label for="productHeight">Product Height (mm):</label>
+      <input type="number" id="productHeight" class="large-text">
+    </div>
+    <div class="input-container">
+      <label for="productWeight">Product Weight (kg):</label>
+      <input type="number" id="productWeight" class="large-text">
+    </div>
+
+    <button onclick="calculateMaxProducts()" class="calculate-button">Calculate</button>
+
+    <div id="result"></div>
+
+    <h2>Results</h2>
+    <p id="maxProducts"></p>
+    <!--<p id="optimalOrientation"></p>-->
+    <p id="warningMessageOne" class="warning-message"></p>
+    <p id="warningMessageTwo" class="warning-message"></p>
+
+    <button onclick="resetForm()" class="reset-button">Reset</button>
+
+    <h2>Updates</h2>
+    <h5>___________________________________________________________________________________</h5>
+    <h3>03 June 2023</h3>
+    <p1><b>Update version 0.3a</b>, added a lot of functionality to pallet stacker.<br>
+      For one it is now possible to calculate additional orientations. This means that<br>
+      the calculator can detect and orient boxes on pallet to fit more. Such as 3 boxes<br>
+      laying flat and 1 box standing up on it's end at the endge of a pallet.<br>
+      This is a beta feature and only reflect double pallets and may not work 100%<br><br></p1>
+
+    <p1><b>Update version 0.3b</b>, New quick update on features i wanted to add before.<br>
+      The web app can now handle error correcting when nothing is inputted into fields, it<br>
+      can also detect overweight pallets and alert user if the pallet may be too heavy<br>
+      for racking, depending on lenght of pallet and weight the user inputted. These variables<br>
+      are hard coded will vary as every deployment is different, optional input field planned.</p1>
+    <h5>___________________________________________________________________________________</h5>
+
+    <h3>04 June 2023</h3>
+    <p1><b>Update version 0.4</b>, New day new update, fairly small update today. The web app<br>
+      is now simplified, no longer pallet spec is user inputtable but simple checkboxes with<br>
+      predetermined values. Future update will feature custom checkbox with user selectable values<br>
+      but for now for simplicity sake it was made with 2 options.</p1>
+    <h5>___________________________________________________________________________________</h5>
+
+  </p1>
 </body>
+
 </html>
