@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Pallet Stacking Calculator v0.4a</title>
+  <title>Product Stark v0.5a</title>
   <style>
     .warning-message {
       color: red;
@@ -39,7 +39,7 @@
       padding: 10px;
       margin-bottom: 20px;
       margin-right: 0px;
-      box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0px 0px 1px 0.25px rgba(0, 0, 0, .1);
     }
 
     .cardtwo {
@@ -48,7 +48,7 @@
       padding: 10px;
       margin-bottom: 20px;
       margin-right: 0px;
-      box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0px 0px 1px 0.25px rgba(0, 0, 0, .1);
     }
 
 
@@ -56,6 +56,21 @@
       font-size: 20px;
       font-weight: bold;
       margin-top: 1px;
+      margin-bottom: 0px;
+    }
+
+    .card-title-two {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 1px;
+      margin-bottom: 5px;
+    }
+
+    .author {
+      font-size: 15px;
+      font-weight: italic;
+      color: green;
+      margin-top: 0px;
       margin-bottom: 10px;
     }
 
@@ -105,7 +120,8 @@
 
 <body>
   <div class="card">
-    <h1 class="card-title">Pallet Stacking Calculator v0.4a</h1>
+    <h1 class="card-title">Product Stark v0.5a </h1>
+    <h1 class="author"><i>by Martin Sekeres</i></h1>
     <p1>This is a beta software, intended for limited use as a general rule on calculating amount <br>
       of boxes that can be fit onto variety of pallets. In no way I take responsibility for any<br>
       issues user may or may not have while using this software, this is a alpha build and will<br>
@@ -207,7 +223,7 @@
 
   <!--<button onclick="resetForm()" class="reset-button">Reset</button>-->
   <div class="card">
-    <h2 class="card-title">Updates</h2>
+    <h2 class="card-title-two">Updates</h2>
     <div class="cardtwo">
       <h3 class="card-title">03 June 2023</h3>
       <p1><b>Update version 0.3a</b>, added a lot of functionality to pallet stacker.<br>
@@ -229,6 +245,16 @@
         now simplified, no longer pallet spec is user inputtable but simple checkboxes with <br>
         predetermined values. Future update will feature custom checkbox with user <br>
         selectable values but for now for simplicity sake it was made with 2 options.</p1>
+    </div>
+
+    <div class="cardtwo">
+      <h3 class="card-title">06 June 2023</h3>
+      <p1><b>Update version 0.5a</b>, Big update today, frst we have the new name for the program<br>
+        Let me introducte you to Product Stakr. A sophisticated web app to calculate number of products<br>
+        you can fit onto a pallet based on products physical and volumetric based infrmation.<br><br>
+        Secondly, new update brings, layered stacking, this new form of calculating dimensions can<br>
+        go ayer by layer checking physical dimensions and volume to figure out the best possible<br>
+        way to stack the product. I hope you enjoy this update and i will see you all in the next one.</p1>
     </div>
   </div>
 </body>
