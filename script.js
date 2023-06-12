@@ -43,6 +43,9 @@ function handleCheckboxChange(checkbox) {
 }
 
 function calculateMaxProducts() {
+
+  //var Debug = document.getElementById("debug");
+
   var singlePalletCheckbox = document.getElementById("singlePalletCheckbox");
   var doublePalletCheckbox = document.getElementById("doublePalletCheckbox");
   var customPalletCheckbox = document.getElementById("customPalletCheckbox");
@@ -123,12 +126,6 @@ function calculateMaxProducts() {
     productLength = temp;
   }
   
-  var maxWeight = maxProducts * productWeight;
-  if (maxWeight > maxPalletWeight) {
-    maxProducts = Math.floor(maxPalletWeight / productWeight);
-    orientation = "";
-  }
-  
   var maxProductsDoublePallet = 0;
   if (productLength <= palletLength / 2 && productWidth <= palletWidth && productHeight <= palletHeight) {
     var maxProductsFlat = Math.floor(palletLength / productLength) * Math.floor(palletWidth / productWidth) * Math.floor(palletHeight / productHeight);
@@ -141,6 +138,12 @@ function calculateMaxProducts() {
     orientation = "";
   }
   
+  var maxWeight = maxProducts * productWeight;
+  if (maxWeight > maxPalletWeight) {
+    maxProducts = Math.floor(maxPalletWeight / productWeight);
+    //Debug.innerHTML = "Debug";
+  }
+
   var warningMessageOne = document.getElementById("warningMessageOne");
   var warningMessageTwo = document.getElementById("warningMessageTwo");
   
