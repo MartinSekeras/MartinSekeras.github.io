@@ -8,7 +8,7 @@ function handleCheckboxChange(checkbox) {
     // Populate the single pallet input fields with predetermined values
     document.getElementById("singlePalletLength").value = "1200";
     document.getElementById("singlePalletWidth").value = "1000";
-    document.getElementById("singlePalletHeight").value = "1800";
+    document.getElementById("singlePalletHeight").value = "1600";
     document.getElementById("singlePalletMaxWeight").value = "600";
     
     // Uncheck the Double Pallet checkbox
@@ -21,7 +21,7 @@ function handleCheckboxChange(checkbox) {
     // Populate the double pallet input fields with predetermined values
     document.getElementById("doublePalletLength").value = "2400";
     document.getElementById("doublePalletWidth").value = "1000";
-    document.getElementById("doublePalletHeight").value = "1800";
+    document.getElementById("doublePalletHeight").value = "1600";
     document.getElementById("doublePalletMaxWeight").value = "500";
     
     // Uncheck the Single Pallet checkbox
