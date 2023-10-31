@@ -9,7 +9,7 @@ function handleCheckboxChange(checkbox) {
     document.getElementById("singlePalletLength").value = "1200";
     document.getElementById("singlePalletWidth").value = "1000";
     document.getElementById("singlePalletHeight").value = "1600";
-    document.getElementById("singlePalletMaxWeight").value = "600";
+    document.getElementById("singlePalletMaxWeight").value = "500";
     
     // Uncheck the Double Pallet checkbox
     doublePalletCheckbox.checked = false;
@@ -148,7 +148,7 @@ function calculateMaxProducts() {
   var warningMessageTwo = document.getElementById("warningMessageTwo");
   
   if (palletLength <= 1200 && maxPalletWeight > 601) {
-    warningMessageOne.innerHTML = "Warning: Pallet may be overweight for racking, (>600kg).";
+    warningMessageOne.innerHTML = "Warning: Pallet may be overweight for racking, (>500kg).";
     warningMessageTwo.innerHTML = "Please select a pallet weight of 500kg max for racking.";
   } else if (palletLength > 1200 && palletLength <= 2400 && maxPalletWeight > 501) {
     warningMessageOne.innerHTML = "Warning: This pallet may be overweight for racking, (>500kg).";
